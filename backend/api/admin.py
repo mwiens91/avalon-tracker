@@ -1,3 +1,8 @@
-from django.contrib import admin
+"""Contains settings for the admin page."""
 
-# Register your models here.
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import User
+
+
+admin.site.register(User, UserAdmin)
