@@ -15,8 +15,7 @@ exclude = '''
   | build
   | dist
 
-  # saltant
-  | docs
+  # django
   | migrations
 )/
 '''
