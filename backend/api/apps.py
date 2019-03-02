@@ -1,3 +1,5 @@
+"""Contains configuration for this Django "app"."""
+
 from django.apps import AppConfig
 
 
