@@ -84,6 +84,10 @@ p_wins_losses <- (
     + scale_y_continuous(label = abs)
 )
 
+# Uncommment these if running with Rscript
+# x11()
+# print(p_wins_losses)
+
 # Plot win %
 p_win_percent <- (
   ggplot(data = results, aes(x = reorder(player, -win_percent), y = win_percent))
@@ -92,5 +96,9 @@ p_win_percent <- (
     + theme_minimal()
 )
 
-# Wait for user to kill script (use this if running with Rscript)
+# Uncommment these if running with Rscript
+# x11()
+# print(p_win_percent)
+
+# Wait for user to kill script (uncomment this if running with Rscript)
 # Sys.sleep(999999999999)
