@@ -1,0 +1,84 @@
+date	2019-05-17
+players	7
+result	spies
+Zen	merlin
+Keegan	leffen
+Alex	resistance
+Matt	resistance
+Jack	morgana
+Dane	spy
+Juan	spy
+
+date	2019-05-17
+players	6
+result	spies
+Jack	merlin
+Alex	resistance
+Zen	resistance
+Juan	resistance
+Dane	spy
+Keegan	spy
+
+date	2019-05-03
+players	6
+result	spies
+Ben	merlin
+Jack	resistance
+Jayden	resistance
+Ricky	resistance
+David	spy
+Matt	spy
+
+date	2019-03-23
+players	10
+result	spies
+James	merlin
+John Zheng	leffen
+Ben	resistance
+Dane	resistance
+Juan	resistance
+Mauricio	resistance
+Jack	spy
+Jayden	spy
+Keegan	spy
+Simran	spy
+
+date	2019-01-18
+players	9
+result	resistance
+Matt	merlin
+Ben	leffen
+Alex	resistance
+David	resistance
+Juan	resistance
+Ryan	resistance
+Cameron	spy
+Dane	spy
+Jayden	spy
+
+date	2019-01-11
+players	10
+result	resistance
+Matt	merlin
+Keegan	leffen
+Ben	resistance
+Cameron	resistance
+Jack	resistance
+Ricky	resistance
+Jayden	morgana
+Alex	spy
+Juan	spy
+Ryan	spy
+
+date	2019-01-11
+players	9
+result	resistance
+Jayden	merlin
+Juan	leffen
+Ben	resistance
+Cameron	resistance
+Matt	resistance
+Ricky	resistance
+Alex	spy
+Jack	spy
+Simran	spy
