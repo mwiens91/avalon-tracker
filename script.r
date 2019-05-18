@@ -89,6 +89,7 @@ p_win_percent <- (
   ggplot(data = results, aes(x = reorder(player, -win_percent), y = win_percent))
   + geom_bar(stat = "identity", fill = "steelblue")
     + labs(x = "player", y = "win %")
+    + scale_y_continuous(labels = scales::percent_format())
     + theme_minimal()
 )
 x11()
