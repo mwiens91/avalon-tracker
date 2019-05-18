@@ -12,12 +12,12 @@ games <- c()
 for (game in raw_games) {
   raw_date <- unlist(strsplit(game[1], "\t"))[2]
   date <- as.Date(raw_date)
-  
+
   raw_players <- unlist(strsplit(game[2], "\t"))[2]
   players <- as.numeric(raw_players)
-  
+
   winning_team <- unlist(strsplit(game[3], "\t"))[2]
-  
+
   # Make the game data frame
   game_df <- data.frame(
     lapply(
@@ -27,16 +27,16 @@ for (game in raw_games) {
   )
   game_df <- as.data.frame(t(unname(game_df)))
   colnames(game_df) <- c("player", "role")
-  
+
   # Add in non-data frame attrs
   game_df.date <- date
   game_df.winning_team <- winning_team
   game_df.players <- players
-  
+
   # Add team column
   team <- lapply(
     game_df[,"role"],
-    function (role) 
+    function (role)
       if (role %in% c("merlin", "leffen", "resistance")) {
         "resistance"
       } else {
@@ -45,11 +45,11 @@ for (game in raw_games) {
   )
   print(game_df)
   game_df$team <- team
-  
+
   # Add result column
   result <- lapply(
     game_df[,"team"],
-    function (role) 
+    function (role)
       if (role == "resistance" & winning_team == "resistance") {
         "win"
       } else if (role == "spies" & winning_team == "spies") {
@@ -59,7 +59,7 @@ for (game in raw_games) {
       }
   )
   game_df$result <- result
-  
+
   games <- c(games, list(game_df))
 }
 
