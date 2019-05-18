@@ -1,1 +1,0 @@
-"""Contains API URL definitions."""
