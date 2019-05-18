@@ -81,10 +81,8 @@ p_wins_losses <- (
     + labs(x = "player", y = "n")
     + scale_y_continuous(label = abs)
 )
-
-# Uncommment these if running with Rscript
-# x11()
-# print(p_wins_losses)
+x11()
+print(p_wins_losses)
 
 # Plot win %
 p_win_percent <- (
@@ -93,10 +91,8 @@ p_win_percent <- (
     + labs(x = "player", y = "win %")
     + theme_minimal()
 )
-
-# Uncommment these if running with Rscript
-# x11()
-# print(p_win_percent)
+x11()
+print(p_win_percent)
 
 # Wait for user to kill script (uncomment this if running with Rscript)
 # Sys.sleep(999999999999)
