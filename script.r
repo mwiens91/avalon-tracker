@@ -43,8 +43,7 @@ for (game in raw_games) {
         "spies"
       }
   )
-  print(game_df)
-  game_df$team <- team
+  game_df$team <- unlist(team)
 
   # Add result column
   result <- lapply(
@@ -58,7 +57,7 @@ for (game in raw_games) {
         "loss"
       }
   )
-  game_df$result <- result
+  game_df$result <- unlist(result)
 
   games <- c(games, list(game_df))
 }
