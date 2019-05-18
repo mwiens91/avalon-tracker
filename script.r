@@ -1,10 +1,14 @@
 #!/usr/bin/env Rscript
 
+library(plyr)
+
 # Load in data
 raw_data <- readLines("data.txt")
 raw_games <- split(raw_data[raw_data != ""], cumsum(raw_data == "")[raw_data != ""] )
 
 # Process data
+games <- c()
+
 for (game in raw_games) {
   raw_date <- unlist(strsplit(game[1], "\t"))[2]
   date <- as.Date(raw_date)
@@ -14,18 +18,24 @@ for (game in raw_games) {
   
   winning_team <- unlist(strsplit(game[3], "\t"))[2]
   
-  data <- data.frame(
+  # Make the game data frame
+  game_df <- data.frame(
     lapply(
       game[4:(4 +players - 1)],
       function (line) unlist(strsplit(line, "\t"))
     )
   )
-  data <- t(unname(data))
-  colnames(data) <- c("player", "role")
+  game_df <- as.data.frame(t(unname(game_df)))
+  colnames(game_df) <- c("player", "role")
+  
+  # Add in non-data frame attrs
+  game_df.date <- date
+  game_df.winning_team <- winning_team
+  game_df.players <- players
   
   # Add team column
   team <- lapply(
-    data[,"role"],
+    game_df[,"role"],
     function (role) 
       if (role %in% c("merlin", "leffen", "resistance")) {
         "resistance"
@@ -33,11 +43,12 @@ for (game in raw_games) {
         "spies"
       }
   )
-  data <- cbind(data, team)
+  print(game_df)
+  game_df$team <- team
   
   # Add result column
   result <- lapply(
-    data[,"team"],
+    game_df[,"team"],
     function (role) 
       if (role == "resistance" & winning_team == "resistance") {
         "win"
@@ -47,8 +58,13 @@ for (game in raw_games) {
         "loss"
       }
   )
-  data <- cbind(data, result)
+  game_df$result <- result
+  
+  games <- c(games, list(game_df))
 }
+
+# Count player win rates
+big_df <- rbind.fill(games)
 
 # Wait for user to kill script (use this if running with Rscript)
 #Sys.sleep(999999999999)
