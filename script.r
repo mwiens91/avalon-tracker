@@ -23,7 +23,7 @@ for (game in raw_games) {
 
   # Make the game data frame
   game_df <- data.frame(
-    lapply(
+    sapply(
       game[4:(4 + players - 1)],
       function(line) unlist(strsplit(line, "\t"))
     )
@@ -37,7 +37,7 @@ for (game in raw_games) {
   game_df.players <- players
 
   # Add team column
-  team <- lapply(
+  game_df$team <- sapply(
     game_df[, "role"],
     function(role)
       if (role %in% c("merlin", "leffen", "resistance")) {
@@ -46,10 +46,9 @@ for (game in raw_games) {
         "spies"
       }
   )
-  game_df$team <- unlist(team)
 
   # Add result column
-  result <- lapply(
+  game_df$result <- sapply(
     game_df[, "team"],
     function(role)
       if (role == "resistance" & winning_team == "resistance") {
@@ -60,7 +59,6 @@ for (game in raw_games) {
         "loss"
       }
   )
-  game_df$result <- unlist(result)
 
   games <- c(games, list(game_df))
 }
