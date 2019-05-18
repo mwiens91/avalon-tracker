@@ -1,8 +1,8 @@
 #!/usr/bin/env Rscript
 
-library(dplyr)
-library(ggplot2)
 library(plyr)
+suppressMessages(library(dplyr))
+library(ggplot2)
 library(reshape2)
 
 # Load in data
