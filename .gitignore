@@ -41,3 +41,5 @@ vignettes/*.pdf
 /*_files/
 
 # End of https://www.gitignore.io/api/r
+.Rproj.user
+*.Rproj
