@@ -1,6 +1,9 @@
 #!/usr/bin/env Rscript
 
+library(dplyr)
+library(ggplot2)
 library(plyr)
+library(reshape2)
 
 # Load in data
 raw_data <- readLines("data.txt")
@@ -64,6 +67,30 @@ for (game in raw_games) {
 
 # Count player win rates
 big_df <- rbind.fill(games)
+molten_results <- melt(select(big_df, player, result), id.var=c("player"))
+results <- dcast(molten_results, player ~ value, value.var="player", length)
+
+# Add in win %
+results <- transform(results, win_percent = win / (win + loss))
+
+# Plot results
+results_freq <- as.data.frame(molten_results %>% group_by(player, value) %>% tally())
+results_freq$n2 <- ifelse(results_freq$value == "loss", -1 * results_freq$n, results_freq$n)
+
+p_wins_losses <- (
+  ggplot(data = results_freq)
+  + geom_bar(aes(x = reorder(player, -n2), y = n2, fill = value), stat = "identity", position = "identity")
+  + labs(x = "player", y = "n")
+  + scale_y_continuous(label=abs)
+)
+
+# Plot win %
+p_win_percent <- (
+  ggplot(data = results, aes(x = reorder(player, -win_percent), y = win_percent))
+  + geom_bar(stat="identity", fill="steelblue")
+  + labs(x = "player", y = "win %")
+  + theme_minimal()
+)
 
 # Wait for user to kill script (use this if running with Rscript)
 #Sys.sleep(999999999999)
