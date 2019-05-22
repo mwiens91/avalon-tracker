@@ -1,3 +1,15 @@
+date	2019-05-18
+players	8
+result	spies
+Jack	merlin
+Juan	leffen
+Dane	resistance
+Jayden	resistance
+Simran	resistance
+Ben	morgana
+Keegan	oberon
+Mauricio	spy
+
 date	2019-05-17
 players	7
 result	spies
