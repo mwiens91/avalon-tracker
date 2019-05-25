@@ -4,6 +4,7 @@ library(plyr)
 suppressMessages(library(dplyr))
 library(ggplot2)
 library(reshape2)
+library(scales)
 
 # Load in data
 raw_data <- readLines("data.txt")
@@ -79,7 +80,7 @@ p_wins_losses <- (
   ggplot(data = results_freq)
   + geom_bar(aes(x = reorder(player, -n2), y = n2, fill = value), stat = "identity", position = "identity")
     + labs(x = "player", y = "n")
-    + scale_y_continuous(label = abs)
+    + scale_y_continuous(label = abs, breaks = pretty_breaks())
 )
 x11()
 print(p_wins_losses)
