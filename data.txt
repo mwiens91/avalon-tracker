@@ -1,3 +1,13 @@
+date	2019-05-24
+players	6
+result	spies
+Ben	merlin
+Alex	leffen
+Keegan	resistance
+Matt	resistance
+Jayden	morgana
+Jack	spy
+
 date	2019-05-18
 players	8
 result	spies
