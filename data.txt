@@ -1,3 +1,15 @@
+date	2019-06-07
+players	8
+result	resistance
+Ali	merlin
+Ben	leffen
+David	resistance
+Jayden	resistance
+Keegan	resistance
+Juan	morgana
+Jack	spy
+Mo	spy
+
 date	2019-05-31
 players	7
 result	resistance
