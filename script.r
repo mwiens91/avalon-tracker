@@ -67,6 +67,7 @@ for (game in raw_games) {
 # Put all games into a big dataframe
 big_df <- rbind.fill(games)
 
+
 # Count player win rates over all roles
 all_role_molten_results <- melt(select(big_df, player, result), id.var = c("player"))
 all_role_results <- dcast(all_role_molten_results, player ~ value, value.var = "player", length)
@@ -98,6 +99,7 @@ p_all_role_win_percent <- (
 x11()
 print(p_all_role_win_percent)
 
+
 # Count player win rates for resistance team
 resistance_big_df <- big_df[big_df$team == "resistance", ]
 resistance_molten_results <- melt(select(resistance_big_df, player, result), id.var = c("player"))
@@ -118,7 +120,7 @@ p_resistance_wins_losses <- (
 x11()
 print(p_resistance_wins_losses)
 
-# Plot win % for all roles
+# Plot win % for all resistance team
 p_resistance_win_percent <- (
   ggplot(data = resistance_results, aes(x = reorder(player, -win_percent), y = win_percent))
   + geom_bar(stat = "identity", fill = "steelblue")
@@ -151,7 +153,7 @@ p_spies_wins_losses <- (
 x11()
 print(p_spies_wins_losses)
 
-# Plot win % for all roles
+# Plot win % for spies team
 p_spies_win_percent <- (
   ggplot(data = spies_results, aes(x = reorder(player, -win_percent), y = win_percent))
   + geom_bar(stat = "identity", fill = "steelblue")
@@ -169,7 +171,7 @@ merlin_big_df <- big_df[big_df$role == "merlin", ]
 merlin_molten_results <- melt(select(merlin_big_df, player, result), id.var = c("player"))
 merlin_results <- dcast(merlin_molten_results, player ~ value, value.var = "player", length)
 
-# Plot wins/losses for all roles
+# Plot wins/losses for Merlin role
 merlin_results_freq <- as.data.frame(merlin_molten_results %>% group_by(player, value) %>% tally())
 merlin_results_freq$n2 <- ifelse(merlin_results_freq$value == "loss", -1 * merlin_results_freq$n, merlin_results_freq$n)
 merlin_results <- transform(merlin_results, win_percent = win / (win + loss))
@@ -184,7 +186,7 @@ p_merlin_wins_losses <- (
 x11()
 print(p_merlin_wins_losses)
 
-# Plot win % for all roles
+# Plot win % for Merlin role
 p_merlin_win_percent <- (
   ggplot(data = merlin_results, aes(x = reorder(player, -win_percent), y = win_percent))
   + geom_bar(stat = "identity", fill = "steelblue")
@@ -195,6 +197,7 @@ p_merlin_win_percent <- (
 )
 x11()
 print(p_merlin_win_percent)
+
 
 # Wait for user to kill script (uncomment this if running with Rscript)
 # Sys.sleep(999999999999)
