@@ -27,7 +27,7 @@ get_plot_wins_losses <- function(molten_results, title) {
     ggplot(data = results_freq)
     + geom_bar(aes(x = reorder(player, -n2), y = n2, fill = value), stat = "identity", position = "identity")
       + labs(title = title, x = "player", y = "n")
-      + scale_y_continuous(label = abs, breaks = pretty_breaks())
+      + scale_y_continuous(minor_breaks = NULL, breaks = function(x) unique(floor(seq(-max(x) - 1, (max(x) + 1) * 1.1))))
       + theme(plot.title = element_text(hjust = 0.5))
   )
 }
