@@ -1,3 +1,22 @@
+date	2019-06-19
+players	6
+result	resistance
+Simran	merlin
+Ali	resistance
+Jack	resistance
+Juno	resistance
+Juan	spy
+Keegan	spy
+
+date	2019-06-19
+players	5
+result	resistance
+Keegan	merlin
+Ali	resistance
+Simran	resistance
+Jack	spy
+Juan	spy
+
 date	2019-06-14
 players	6
 result	resistance
