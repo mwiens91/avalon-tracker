@@ -5,6 +5,7 @@ suppressMessages(library(dplyr))
 library(ggplot2)
 library(reshape2)
 library(scales)
+library(yaml)
 
 # Helper functions
 get_molten_results <- function(df) {
@@ -41,6 +42,9 @@ get_plots_win_percent <- function(results, title) {
       + theme(plot.title = element_text(hjust = 0.5))
   )
 }
+
+# Load config file
+config_options <- yaml.load_file("config.yaml")
 
 # Load in data
 raw_data <- readLines("data.txt")
@@ -107,49 +111,67 @@ big_df <- rbind.fill(games)
 all_role_molten_results <- get_molten_results(big_df)
 all_role_results <- get_formatted_results(all_role_molten_results)
 
-p_all_role_wins_losses <- get_plot_wins_losses(all_role_molten_results, title = "Player wins/losses for all roles")
-x11()
-print(p_all_role_wins_losses)
+if (config_options$print_all_role_wins_losses) {
+  p_all_role_wins_losses <- get_plot_wins_losses(all_role_molten_results, title = "Player wins/losses for all roles")
+  x11()
+  print(p_all_role_wins_losses)
+}
 
-p_all_role_win_percent <-get_plots_win_percent(all_role_results, title = "Player win percentage for all roles")
-x11()
-print(p_all_role_win_percent)
+if (config_options$print_all_role_win_percent) {
+  p_all_role_win_percent <- get_plots_win_percent(all_role_results, title = "Player win percentage for all roles")
+  x11()
+  print(p_all_role_win_percent)
+}
 
 # Resistance team
 resistance_molten_results <- get_molten_results(big_df[big_df$team == "resistance", ])
 resistance_results <- get_formatted_results(resistance_molten_results)
 
-p_resistance_wins_losses <- get_plot_wins_losses(resistance_molten_results, title = "Player wins/losses for resistance team")
-x11()
-print(p_resistance_wins_losses)
+if (config_options$print_resistance_wins_losses) {
+  p_resistance_wins_losses <- get_plot_wins_losses(resistance_molten_results, title = "Player wins/losses for resistance team")
+  x11()
+  print(p_resistance_wins_losses)
+}
 
-p_resistance_win_percent <-get_plots_win_percent(resistance_results, title = "Player win percentage for resistance team")
-x11()
-print(p_resistance_win_percent)
+if (config_options$print_resistance_win_percent) {
+  p_resistance_win_percent <- get_plots_win_percent(resistance_results, title = "Player win percentage for resistance team")
+  x11()
+  print(p_resistance_win_percent)
+}
 
 # Spies team
 spies_molten_results <- get_molten_results(big_df[big_df$team == "spies", ])
 spies_results <- get_formatted_results(spies_molten_results)
 
-p_spies_wins_losses <- get_plot_wins_losses(spies_molten_results, title = "Player wins/losses for spies team")
-x11()
-print(p_spies_wins_losses)
+if (config_options$print_spies_wins_losses) {
+  p_spies_wins_losses <- get_plot_wins_losses(spies_molten_results, title = "Player wins/losses for spies team")
+  x11()
+  print(p_spies_wins_losses)
+}
 
-p_spies_win_percent <-get_plots_win_percent(spies_results, title = "Player win percentage for spies team")
-x11()
-print(p_spies_win_percent)
+if (config_options$print_spies_win_percent) {
+  p_spies_win_percent <- get_plots_win_percent(spies_results, title = "Player win percentage for spies team")
+  x11()
+  print(p_spies_win_percent)
+}
 
 # Merlin role
 merlin_molten_results <- get_molten_results(big_df[big_df$role == "merlin", ])
 merlin_results <- get_formatted_results(merlin_molten_results)
 
-p_merlin_wins_losses <- get_plot_wins_losses(merlin_molten_results, title = "Player wins/losses for Merlin role")
-x11()
-print(p_merlin_wins_losses)
+if (config_options$print_merlin_wins_losses) {
+  p_merlin_wins_losses <- get_plot_wins_losses(merlin_molten_results, title = "Player wins/losses for Merlin role")
+  x11()
+  print(p_merlin_wins_losses)
+}
 
-p_merlin_win_percent <-get_plots_win_percent(merlin_results, title = "Player win percentage for Merlin role")
-x11()
-print(p_merlin_win_percent)
+if (config_options$print_all_role_win_percent) {
+  p_merlin_win_percent <- get_plots_win_percent(merlin_results, title = "Player win percentage for Merlin role")
+  x11()
+  print(p_merlin_win_percent)
+}
 
 # Wait for user to kill script (uncomment this if running with Rscript)
-#Sys.sleep(999999999999)
+if (config_options$sleep_at_end_of_execution) {
+  Sys.sleep(999999999999)
+}

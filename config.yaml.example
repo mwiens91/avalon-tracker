@@ -1,0 +1,9 @@
+sleep_at_end_of_execution: false
+print_all_role_wins_losses: true
+print_all_role_win_percent: true
+print_resistance_wins_losses: true
+print_resistance_win_percent: true
+print_spies_wins_losses: true
+print_spies_win_percent: true
+print_merlin_wins_losses: true
+print_merlin_win_percent: true

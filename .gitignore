@@ -43,3 +43,6 @@ vignettes/*.pdf
 # End of https://www.gitignore.io/api/r
 .Rproj.user
 *.Rproj
+
+# Config file
+config.yaml
