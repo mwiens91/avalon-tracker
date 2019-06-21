@@ -1,3 +1,13 @@
+date	2019-06-21
+players	6
+result	resistance
+Jayden	merlin
+Juan	leffen
+Ben	resistance
+Simran	resistance
+Ali	Morgana
+David	spy
+
 date	2019-06-19
 players	6
 result	resistance
