@@ -14,18 +14,26 @@ get_molten_results <- function(df) {
 
 get_formatted_results <- function(molten_results) {
   results <- dcast(molten_results, player ~ value, value.var = "player", length)
+  results <- transform(results, win_delta = win - loss)
+  results <- transform(results, total_games = win + loss)
   results <- transform(results, win_percent = win / (win + loss))
 
   return(results)
 }
 
-get_plot_wins_losses <- function(molten_results, title) {
+get_plot_wins_losses <- function(wide_results, molten_results, title) {
   results_freq <- as.data.frame(molten_results %>% group_by(player, value) %>% tally())
   results_freq$n2 <- ifelse(results_freq$value == "loss", -1 * results_freq$n, results_freq$n)
+  results_freq$player <- factor(
+    results_freq$player,
+    levels = all_role_results[
+      order(-all_role_results$win_delta, -all_role_results$total_games, all_role_results$player),
+    ]$player
+  )
 
   return(
     ggplot(data = results_freq)
-    + geom_bar(aes(x = reorder(player, -n2), y = n2, fill = value), stat = "identity", position = "identity")
+    + geom_bar(aes(x = player, y = n2, fill = value), stat = "identity", position = "identity")
       + labs(title = title, x = "player", y = "n")
       + scale_y_continuous(minor_breaks = NULL, breaks = function(x) unique(floor(seq(-max(x) - 1, (max(x) + 1) * 1.1))))
       + theme(plot.title = element_text(hjust = 0.5))
@@ -112,7 +120,7 @@ all_role_molten_results <- get_molten_results(big_df)
 all_role_results <- get_formatted_results(all_role_molten_results)
 
 if (config_options$print_all_role_wins_losses) {
-  p_all_role_wins_losses <- get_plot_wins_losses(all_role_molten_results, title = "Player wins/losses for all roles")
+  p_all_role_wins_losses <- get_plot_wins_losses(all_role_results, all_role_molten_results, title = "Player wins/losses for all roles")
   x11()
   print(p_all_role_wins_losses)
 }
@@ -128,7 +136,7 @@ resistance_molten_results <- get_molten_results(big_df[big_df$team == "resistanc
 resistance_results <- get_formatted_results(resistance_molten_results)
 
 if (config_options$print_resistance_wins_losses) {
-  p_resistance_wins_losses <- get_plot_wins_losses(resistance_molten_results, title = "Player wins/losses for resistance team")
+  p_resistance_wins_losses <- get_plot_wins_losses(resistance_results, resistance_molten_results, title = "Player wins/losses for resistance team")
   x11()
   print(p_resistance_wins_losses)
 }
@@ -144,7 +152,7 @@ spies_molten_results <- get_molten_results(big_df[big_df$team == "spies", ])
 spies_results <- get_formatted_results(spies_molten_results)
 
 if (config_options$print_spies_wins_losses) {
-  p_spies_wins_losses <- get_plot_wins_losses(spies_molten_results, title = "Player wins/losses for spies team")
+  p_spies_wins_losses <- get_plot_wins_losses(spies_results, spies_molten_results, title = "Player wins/losses for spies team")
   x11()
   print(p_spies_wins_losses)
 }
@@ -160,7 +168,7 @@ merlin_molten_results <- get_molten_results(big_df[big_df$role == "merlin", ])
 merlin_results <- get_formatted_results(merlin_molten_results)
 
 if (config_options$print_merlin_wins_losses) {
-  p_merlin_wins_losses <- get_plot_wins_losses(merlin_molten_results, title = "Player wins/losses for Merlin role")
+  p_merlin_wins_losses <- get_plot_wins_losses(merlin_results, merlin_molten_results, title = "Player wins/losses for Merlin role")
   x11()
   print(p_merlin_wins_losses)
 }
