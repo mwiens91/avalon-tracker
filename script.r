@@ -34,6 +34,7 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
       ),
     ]$player
   )
+  results_freq$value <- factor(results_freq$value, levels = c("win", "loss"))
 
   return(
     ggplot(data = results_freq)
@@ -43,6 +44,7 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
         minor_breaks = NULL,
         breaks = function(x) unique(floor(seq(-max(x) - 1, (max(x) + 1) * 1.1)))
       )
+      + scale_fill_manual(values = c("#00BFC4", "#F8766D"))
       + theme(plot.title = element_text(hjust = 0.5))
   )
 }
