@@ -26,11 +26,11 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
   results_freq$n2 <- ifelse(results_freq$value == "loss", -1 * results_freq$n, results_freq$n)
   results_freq$player <- factor(
     results_freq$player,
-    levels = all_role_results[
+    levels = wide_results[
       order(
-        -all_role_results$win_delta,
-        -all_role_results$total_games,
-        all_role_results$player
+        -wide_results$win_delta,
+        -wide_results$total_games,
+        wide_results$player
       ),
     ]$player
   )
@@ -50,7 +50,7 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
 }
 
 get_plots_win_percent <- function(results, title) {
-  p_all_role_win_percent <- (
+  return(
     ggplot(data = results, aes(x = reorder(player, -win_percent), y = win_percent))
     + geom_bar(stat = "identity", fill = "steelblue")
       + labs(title = title, x = "player", y = "win %")
@@ -206,7 +206,7 @@ if (config_options$print_merlin_wins_losses) {
   print(p_merlin_wins_losses)
 }
 
-if (config_options$print_all_role_win_percent) {
+if (config_options$print_merlin_win_percent) {
   p_merlin_win_percent <- get_plots_win_percent(
     merlin_results,
     title = "Player win percentage for Merlin role"
