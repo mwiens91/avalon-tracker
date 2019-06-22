@@ -5,5 +5,9 @@ print_resistance_wins_losses: true
 print_resistance_win_percent: true
 print_spies_wins_losses: true
 print_spies_win_percent: true
+print_morgana_wins_losses: true
+print_morgana_win_percent: true
+print_percival_wins_losses: true
+print_percival_win_percent: true
 print_merlin_wins_losses: true
 print_merlin_win_percent: true

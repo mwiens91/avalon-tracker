@@ -193,6 +193,51 @@ if (config_options$print_spies_win_percent) {
   print(p_spies_win_percent)
 }
 
+# Morgana role
+morgana_molten_results <- get_molten_results(big_df[big_df$role == "morgana", ])
+morgana_results <- get_formatted_results(morgana_molten_results)
+
+if (config_options$print_morgana_wins_losses) {
+  p_morgana_wins_losses <- get_plot_wins_losses(
+    morgana_results, morgana_molten_results,
+    title = "Player wins/losses for Morgana role"
+  )
+  x11()
+  print(p_morgana_wins_losses)
+}
+
+if (config_options$print_morgana_win_percent) {
+  p_morgana_win_percent <- get_plots_win_percent(
+    morgana_results,
+    title = "Player win percentage for Morgana role"
+  )
+  x11()
+  print(p_morgana_win_percent)
+}
+
+
+# Percival role
+percival_molten_results <- get_molten_results(big_df[big_df$role == "percival", ])
+percival_results <- get_formatted_results(percival_molten_results)
+
+if (config_options$print_percival_wins_losses) {
+  p_percival_wins_losses <- get_plot_wins_losses(
+    percival_results, percival_molten_results,
+    title = "Player wins/losses for Percival role"
+  )
+  x11()
+  print(p_percival_wins_losses)
+}
+
+if (config_options$print_percival_win_percent) {
+  p_percival_win_percent <- get_plots_win_percent(
+    percival_results,
+    title = "Player win percentage for Percival role"
+  )
+  x11()
+  print(p_percival_win_percent)
+}
+
 # Merlin role
 merlin_molten_results <- get_molten_results(big_df[big_df$role == "merlin", ])
 merlin_results <- get_formatted_results(merlin_molten_results)
