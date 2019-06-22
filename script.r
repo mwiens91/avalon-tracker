@@ -98,7 +98,7 @@ for (game in raw_games) {
   game_df$team <- sapply(
     game_df[, "role"],
     function(role)
-      if (role %in% c("merlin", "leffen", "resistance")) {
+      if (role %in% c("merlin", "percival", "resistance")) {
         "resistance"
       } else {
         "spies"

@@ -2,7 +2,7 @@ date	2019-06-21
 players	6
 result	resistance
 Jayden	merlin
-Juan	leffen
+Juan	percival
 Ben	resistance
 Simran	resistance
 Ali	morgana
@@ -31,7 +31,7 @@ date	2019-06-14
 players	6
 result	resistance
 Jack	merlin
-Dane	leffen
+Dane	percival
 Ali	resistance
 Juan	resistance
 Keegan	morgana
@@ -41,7 +41,7 @@ date	2019-06-14
 players	6
 result	resistance
 Jayden	merlin
-Jack	leffen
+Jack	percival
 Alex	resistance
 Dane	resistance
 Keegan	morgana
@@ -51,7 +51,7 @@ date	2019-06-07
 players	8
 result	resistance
 Ali	merlin
-Ben	leffen
+Ben	percival
 David	resistance
 Jayden	resistance
 Keegan	resistance
@@ -63,7 +63,7 @@ date	2019-05-31
 players	7
 result	resistance
 Mo	merlin
-Jack	leffen
+Jack	percival
 Juan	resistance
 Ryan	resistance
 Keegan	morgana
@@ -85,7 +85,7 @@ date	2019-05-24
 players	6
 result	spies
 Ben	merlin
-Alex	leffen
+Alex	percival
 Keegan	resistance
 Matt	resistance
 Jayden	morgana
@@ -95,7 +95,7 @@ date	2019-05-18
 players	8
 result	spies
 Jack	merlin
-Juan	leffen
+Juan	percival
 Dane	resistance
 Jayden	resistance
 Simran	resistance
@@ -107,7 +107,7 @@ date	2019-05-17
 players	7
 result	spies
 Zen	merlin
-Keegan	leffen
+Keegan	percival
 Alex	resistance
 Matt	resistance
 Jack	morgana
@@ -138,7 +138,7 @@ date	2019-03-23
 players	10
 result	spies
 James	merlin
-John Zheng	leffen
+John Zheng	percival
 Ben	resistance
 Dane	resistance
 Juan	resistance
@@ -152,7 +152,7 @@ date	2019-01-18
 players	9
 result	resistance
 Matt	merlin
-Ben	leffen
+Ben	percival
 Alex	resistance
 David	resistance
 Juan	resistance
@@ -165,7 +165,7 @@ date	2019-01-11
 players	10
 result	resistance
 Matt	merlin
-Keegan	leffen
+Keegan	percival
 Ben	resistance
 Cameron	resistance
 Jack	resistance
@@ -179,7 +179,7 @@ date	2019-01-11
 players	9
 result	resistance
 Jayden	merlin
-Juan	leffen
+Juan	percival
 Ben	resistance
 Cameron	resistance
 Matt	resistance
