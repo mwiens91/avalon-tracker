@@ -5,7 +5,7 @@ Jayden	merlin
 Juan	leffen
 Ben	resistance
 Simran	resistance
-Ali	Morgana
+Ali	morgana
 David	spy
 
 date	2019-06-19
