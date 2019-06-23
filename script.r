@@ -49,7 +49,7 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
   )
 }
 
-get_plots_win_percent <- function(results, title) {
+get_plot_win_percent <- function(results, title) {
   return(
     ggplot(data = results, aes(x = reorder(player, -win_percent), y = win_percent))
     + geom_bar(stat = "identity", fill = "steelblue")
@@ -58,6 +58,33 @@ get_plots_win_percent <- function(results, title) {
       + theme_minimal()
       + theme(plot.title = element_text(hjust = 0.5))
   )
+}
+
+print_results_plots <- function(
+  df,
+  print_wins_losses_plot = FALSE,
+  wins_losses_plot_title = "",
+  print_win_percent_plot = FALSE,
+  win_percent_plot_title = ""
+) {
+  molten_results <- get_molten_results(df)
+  results <- get_formatted_results(molten_results)
+
+  if (print_wins_losses_plot) {
+    p_wins_losses <- get_plot_wins_losses(
+      results, molten_results, wins_losses_plot_title
+    )
+    x11()
+    print(p_wins_losses)
+  }
+
+  if (print_win_percent_plot) {
+    p_win_percent <- get_plot_win_percent(
+      results, win_percent_plot_title
+    )
+    x11()
+    print(p_win_percent)
+  }
 }
 
 # Load config file
@@ -125,140 +152,58 @@ for (game in raw_games) {
 big_df <- rbind.fill(games)
 
 # All roles
-all_role_molten_results <- get_molten_results(big_df)
-all_role_results <- get_formatted_results(all_role_molten_results)
-
-if (config_options$print_all_role_wins_losses) {
-  p_all_role_wins_losses <- get_plot_wins_losses(
-    all_role_results,
-    all_role_molten_results,
-    title = "Player wins/losses for all roles"
-  )
-  x11()
-  print(p_all_role_wins_losses)
-}
-
-if (config_options$print_all_role_win_percent) {
-  p_all_role_win_percent <- get_plots_win_percent(
-    all_role_results,
-    title = "Player win percentage for all roles"
-  )
-  x11()
-  print(p_all_role_win_percent)
-}
+print_results_plots(
+  big_df,
+  config_options$print_all_role_wins_losses,
+  "Player wins/losses for all roles",
+  config_options$print_all_role_win_percent,
+  "Player win percentage for all roles"
+)
 
 # Resistance team
-resistance_molten_results <- get_molten_results(big_df[big_df$team == "resistance", ])
-resistance_results <- get_formatted_results(resistance_molten_results)
-
-if (config_options$print_resistance_wins_losses) {
-  p_resistance_wins_losses <- get_plot_wins_losses(
-    resistance_results,
-    resistance_molten_results,
-    title = "Player wins/losses for resistance team"
-  )
-  x11()
-  print(p_resistance_wins_losses)
-}
-
-if (config_options$print_resistance_win_percent) {
-  p_resistance_win_percent <- get_plots_win_percent(
-    resistance_results,
-    title = "Player win percentage for resistance team"
-  )
-  x11()
-  print(p_resistance_win_percent)
-}
+print_results_plots(
+  big_df[big_df$team == "resistance", ],
+  config_options$print_resistance_wins_losses,
+  "Player wins/losses for resistance team",
+  config_options$print_resistance_win_percent,
+  "Player win percentage for resistance team"
+)
 
 # Spies team
-spies_molten_results <- get_molten_results(big_df[big_df$team == "spies", ])
-spies_results <- get_formatted_results(spies_molten_results)
-
-if (config_options$print_spies_wins_losses) {
-  p_spies_wins_losses <- get_plot_wins_losses(
-    spies_results,
-    spies_molten_results,
-    title = "Player wins/losses for spies team"
-  )
-  x11()
-  print(p_spies_wins_losses)
-}
-
-if (config_options$print_spies_win_percent) {
-  p_spies_win_percent <- get_plots_win_percent(
-    spies_results,
-    title = "Player win percentage for spies team"
-  )
-  x11()
-  print(p_spies_win_percent)
-}
+print_results_plots(
+  big_df[big_df$team == "spies", ],
+  config_options$print_spies_wins_losses,
+  "Player wins/losses for spies team",
+  config_options$print_spies_win_percent,
+  "Player win percentage for spies team"
+)
 
 # Morgana role
-morgana_molten_results <- get_molten_results(big_df[big_df$role == "morgana", ])
-morgana_results <- get_formatted_results(morgana_molten_results)
-
-if (config_options$print_morgana_wins_losses) {
-  p_morgana_wins_losses <- get_plot_wins_losses(
-    morgana_results, morgana_molten_results,
-    title = "Player wins/losses for Morgana role"
-  )
-  x11()
-  print(p_morgana_wins_losses)
-}
-
-if (config_options$print_morgana_win_percent) {
-  p_morgana_win_percent <- get_plots_win_percent(
-    morgana_results,
-    title = "Player win percentage for Morgana role"
-  )
-  x11()
-  print(p_morgana_win_percent)
-}
-
+print_results_plots(
+  big_df[big_df$role == "morgana", ],
+  config_options$print_morgana_wins_losses,
+  "Player wins/losses for Morgana role",
+  config_options$print_morgana_win_percent,
+  "Player win percentage for Morgana role"
+)
 
 # Percival role
-percival_molten_results <- get_molten_results(big_df[big_df$role == "percival", ])
-percival_results <- get_formatted_results(percival_molten_results)
-
-if (config_options$print_percival_wins_losses) {
-  p_percival_wins_losses <- get_plot_wins_losses(
-    percival_results, percival_molten_results,
-    title = "Player wins/losses for Percival role"
-  )
-  x11()
-  print(p_percival_wins_losses)
-}
-
-if (config_options$print_percival_win_percent) {
-  p_percival_win_percent <- get_plots_win_percent(
-    percival_results,
-    title = "Player win percentage for Percival role"
-  )
-  x11()
-  print(p_percival_win_percent)
-}
+print_results_plots(
+  big_df[big_df$role == "percival", ],
+  config_options$print_percival_wins_losses,
+  "Player wins/losses for Percival role",
+  config_options$print_percival_win_percent,
+  "Player win percentage for Percival role"
+)
 
 # Merlin role
-merlin_molten_results <- get_molten_results(big_df[big_df$role == "merlin", ])
-merlin_results <- get_formatted_results(merlin_molten_results)
-
-if (config_options$print_merlin_wins_losses) {
-  p_merlin_wins_losses <- get_plot_wins_losses(
-    merlin_results, merlin_molten_results,
-    title = "Player wins/losses for Merlin role"
-  )
-  x11()
-  print(p_merlin_wins_losses)
-}
-
-if (config_options$print_merlin_win_percent) {
-  p_merlin_win_percent <- get_plots_win_percent(
-    merlin_results,
-    title = "Player win percentage for Merlin role"
-  )
-  x11()
-  print(p_merlin_win_percent)
-}
+print_results_plots(
+  big_df[big_df$role == "merlin", ],
+  config_options$print_merlin_wins_losses,
+  "Player wins/losses for Merlin role",
+  config_options$print_merlin_win_percent,
+  "Player win percentage for Merlin role"
+)
 
 # Wait for user to kill script (uncomment this if running with Rscript)
 if (config_options$sleep_at_end_of_execution) {
