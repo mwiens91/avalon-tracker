@@ -14,9 +14,12 @@ get_molten_results <- function(df) {
 
 get_formatted_results <- function(molten_results) {
   results <- dcast(molten_results, player ~ value, value.var = "player", length)
-  results <- transform(results, win_delta = win - loss)
-  results <- transform(results, total_games = win + loss)
-  results <- transform(results, win_percent = win / (win + loss))
+  results <- transform(
+    results,
+    win_delta = win - loss,
+    total_games = win + loss,
+    win_percent = win / (win + loss)
+  )
 
   return(results)
 }
