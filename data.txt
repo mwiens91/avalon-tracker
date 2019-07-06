@@ -1,3 +1,14 @@
+date	2019-07-05
+players	7
+result	resistance
+Juan	merlin
+Keegan	percival
+Jack	resistance
+Simran	resistance
+Cameron	morgana
+Juno	spy
+Russell	spy
+
 date	2019-06-28
 players	6
 result	resistance
