@@ -33,7 +33,7 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
       order(
         -wide_results$win_delta,
         -wide_results$total_games,
-        wide_results$player
+        as.character(wide_results$player)
       ),
     ]$player
   )
@@ -53,8 +53,19 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
 }
 
 get_plot_win_percent <- function(results, title) {
+  results_win_per <- results
+  results_win_per$player <- factor(
+    results_win_per$player,
+    levels = results_win_per[
+      order(
+        -results_win_per$win_percent,
+        as.character(results_win_per$player)
+      ),
+    ]$player
+  )
+
   return(
-    ggplot(data = results, aes(x = reorder(player, -win_percent), y = win_percent))
+    ggplot(data = results_win_per, aes(x = player, y = win_percent))
     + geom_bar(stat = "identity", fill = "steelblue")
       + labs(title = title, x = "player", y = "win %")
       + scale_y_continuous(labels = scales::percent_format())
@@ -64,12 +75,11 @@ get_plot_win_percent <- function(results, title) {
 }
 
 print_results_plots <- function(
-  df,
-  print_wins_losses_plot = FALSE,
-  wins_losses_plot_title = "",
-  print_win_percent_plot = FALSE,
-  win_percent_plot_title = ""
-) {
+    df,
+    print_wins_losses_plot = FALSE,
+    wins_losses_plot_title = "",
+    print_win_percent_plot = FALSE,
+    win_percent_plot_title = "") {
   molten_results <- get_molten_results(df)
   results <- get_formatted_results(molten_results)
 
