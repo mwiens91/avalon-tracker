@@ -68,18 +68,18 @@ get_plot_win_percent <- function(results, title) {
     ggplot(data = results_win_per, aes(x = player, y = win_percent))
     + geom_bar(stat = "identity", fill = "steelblue")
       + labs(title = title, x = "player", y = "win %")
-      + scale_y_continuous(labels = scales::percent_format(), limits=c(0,1))
+      + scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1))
       + theme_minimal()
       + theme(plot.title = element_text(hjust = 0.5))
   )
 }
 
 print_results_plots <- function(
-    df,
-    print_wins_losses_plot = FALSE,
-    wins_losses_plot_title = "",
-    print_win_percent_plot = FALSE,
-    win_percent_plot_title = "") {
+                                df,
+                                print_wins_losses_plot = FALSE,
+                                wins_losses_plot_title = "",
+                                print_win_percent_plot = FALSE,
+                                win_percent_plot_title = "") {
   molten_results <- get_molten_results(df)
   results <- get_formatted_results(molten_results)
 
