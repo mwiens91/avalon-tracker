@@ -1,3 +1,14 @@
+date	2019-07-10
+players	7
+result	spies
+Alex	merlin
+Cameron	percival
+Juno	resistance
+Keegan	resistance
+Jack	morgana
+Matt	spy
+Paul	spy
+
 date	2019-07-05
 players	7
 result	resistance
