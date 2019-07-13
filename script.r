@@ -140,8 +140,10 @@ for (game in raw_games) {
     function(role)
       if (role %in% c("merlin", "percival", "resistance")) {
         "resistance"
-      } else {
+      } else if (role %in% c("golnar", "mordred", "morgana", "oberon", "spy")) {
         "spies"
+      } else {
+        stop(sprintf("'%s' is not a recognized role!", role))
       }
   )
 
