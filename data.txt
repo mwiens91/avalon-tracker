@@ -1,3 +1,28 @@
+date	2019-07-12
+players	10
+result	resistance
+David	merlin
+Jack	percival
+Dane	resistance
+Cameron	resistance
+Jayden	resistance
+Matt	resistance
+Juan	golnar
+Keegan	morgana
+Alex	spy
+Paul	spy
+
+date	2019-07-12
+players	7
+result	spies
+Jayden	merlin
+Juan	percival
+David	resistance
+Russell	resistance
+Jack	morgana
+Alex	spy
+Keegan	spy
+
 date	2019-07-10
 players	7
 result	spies
