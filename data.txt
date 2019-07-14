@@ -1,3 +1,12 @@
+date	2019-07-13
+players	5
+result	spies
+Jayden	merlin
+Cameron	resistance
+Jack	resistance
+Matt	spy
+Simran	spy
+
 date	2019-07-12
 players	10
 result	resistance
