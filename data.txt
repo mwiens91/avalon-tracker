@@ -1,3 +1,13 @@
+date	2019-07-15
+players	6
+result	resistance
+Jack	merlin
+Keegan	percival
+Ali	resistance
+Zen	resistance
+Matt	spy
+Simran	spy
+
 date	2019-07-13
 players	5
 result	spies
