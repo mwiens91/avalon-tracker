@@ -1,3 +1,25 @@
+date	2019-07-19
+players	8
+result	resistance
+Jayden	merlin
+Mel	percival
+Alex	resistance
+Juan	resistance
+Matt	resistance
+David	morgana
+Jack	spy
+Zen	spy
+
+date	2019-07-19
+players	6
+result	resistance
+Juan	merlin
+Jayden	percival
+Alex	resistance
+David	resistance
+Jack	morgana
+Ali	spy
+
 date	2019-07-17
 players	7
 result	resistance
