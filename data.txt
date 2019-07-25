@@ -1,3 +1,26 @@
+date	2019-07-24
+players	7
+result	spies
+Matt	merlin
+Juan	percival
+Cameron	resistance
+Parker	resistance
+Ben	morgana
+Alex	spy
+Zen	spy
+
+date	2019-07-24
+players	8
+result	resistance
+Keegan	merlin
+Ben	percival
+Cameron	resistance
+Mel	resistance
+Parker	resistance
+Juan	morgana
+Alex	spy
+Simran	spy
+
 date	2019-07-19
 players	8
 result	resistance
