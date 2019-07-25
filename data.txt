@@ -1,3 +1,33 @@
+date	2019-07-25
+players	6
+result	resistance
+Mauricio	merlin
+Ali	resistance
+Jack	resistance
+Russell	resistance
+Juan	spy
+Matt	spy
+
+date	2019-07-25
+players	6
+result	resistance
+Ali	merlin
+Jack	resistance
+Matt	resistance
+Russell	resistance
+Juan	spy
+Mauricio	spy
+
+date	2019-07-25
+players	6
+result	resistance
+Russell	merlin
+Matt	percival
+Juan	resistance
+Mauricio	resistance
+Jack	morgana
+Ali	spy
+
 date	2019-07-24
 players	7
 result	spies
