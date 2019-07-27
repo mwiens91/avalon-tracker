@@ -26,6 +26,19 @@ Alex	spy
 Jack	spy
 Russell	spy
 
+date	2019-07-26
+players	9
+result	resistance
+Cameron	merlin
+Ben	percival
+Jack	resistance
+Jayden	resistance
+Russell	resistance
+Simran	resistance
+Parker	mordred
+Keegan	morgana
+Alex	spy
+
 date	2019-07-25
 players	6
 result	resistance
