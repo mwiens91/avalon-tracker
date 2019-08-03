@@ -1,3 +1,13 @@
+date	2019-08-02
+players	6
+result	spies
+Jack	merlin
+Juan	percival
+David	resistance
+Simran	resistance
+Russell	morgana
+Ben	spy
+
 date	2019-07-26
 players	10
 result	resistance
