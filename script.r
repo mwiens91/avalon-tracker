@@ -193,6 +193,24 @@ print_results_plots(
   "Player win percentage for spies team"
 )
 
+# Vanilla resistance role
+print_results_plots(
+  big_df[big_df$role == "resistance", ],
+  config_options$print_vanilla_resistance_wins_losses,
+  "Player wins/losses for vanilla resistance role",
+  config_options$print_vanilla_resistance_win_percent,
+  "Player win percentage for vanilla resistance role"
+)
+
+# Vanilla spy role
+print_results_plots(
+  big_df[big_df$role == "spy", ],
+  config_options$print_vanilla_spy_wins_losses,
+  "Player wins/losses for vanilla spy role",
+  config_options$print_vanilla_spy_win_percent,
+  "Player win percentage for vanilla spy role"
+)
+
 # Morgana role
 print_results_plots(
   big_df[big_df$role == "morgana", ],
