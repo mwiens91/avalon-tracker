@@ -89,6 +89,12 @@ print_results_plots <- function(
                                 wins_losses_plot_title = "",
                                 print_win_percent_plot = FALSE,
                                 win_percent_plot_title = "") {
+  # Get out if no rows in data frame
+  if (dim(df)[1] == 0) {
+    # TODO: find a way to not have this print NULL to the terminal
+    return()
+  }
+
   molten_results <- get_molten_results(df)
   results <- get_formatted_results(molten_results)
 
@@ -170,6 +176,11 @@ for (game in raw_games) {
   )
 
   games <- c(games, list(game_df))
+}
+
+# Get out if no games
+if (is.null(games)) {
+  stop("No data!")
 }
 
 # Put all games into a big dataframe
