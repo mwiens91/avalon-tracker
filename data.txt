@@ -1,3 +1,14 @@
+date	2019-09-09
+players	7
+result	resistance
+Simran	merlin
+Chris	resistance
+Jack	resistance
+Keegan	resistance
+Juan	spy
+Matt	spy
+Paul	spy
+
 date	2019-08-31
 players	6
 result	spies
