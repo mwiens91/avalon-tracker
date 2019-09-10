@@ -14,6 +14,15 @@ get_molten_results <- function(df) {
 
 get_formatted_results <- function(molten_results) {
   results <- dcast(molten_results, player ~ value, value.var = "player", length)
+
+  if (!("win" %in% colnames(results))){
+    results <- cbind(results, win = 0)
+  }
+
+  if (!("loss" %in% colnames(results))){
+    results <- cbind(results, loss = 0)
+  }
+
   results <- transform(
     results,
     win_delta = win - loss,
