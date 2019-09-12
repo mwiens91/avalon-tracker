@@ -231,6 +231,15 @@ print_results_plots(
   "Player win percentage for vanilla spy role"
 )
 
+# Mordred role
+print_results_plots(
+  big_df[big_df$role == "mordred", ],
+  config_options$print_mordred_wins_losses,
+  "Player wins/losses for Mordred role",
+  config_options$print_mordred_win_percent,
+  "Player win percentage for Mordred role"
+)
+
 # Morgana role
 print_results_plots(
   big_df[big_df$role == "morgana", ],
