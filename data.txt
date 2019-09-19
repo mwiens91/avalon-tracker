@@ -1,3 +1,27 @@
+date	2019-09-18
+players	9
+result	spies
+Zen	merlin
+Matt	percival
+David	resistance
+Keegan	resistance
+Jack	resistance
+Ryan	resistance
+Cameron	mordred
+Juan	morgana
+Simran	spy
+
+date	2019-09-18
+players	7
+result	resistance
+Matt	merlin
+Jack	percival
+Juan	resistance
+Simran	resistance
+Zen	mordred
+Cameron	morgana
+Keegan	spy
+
 date	2019-09-16
 players	7
 result	resistance
