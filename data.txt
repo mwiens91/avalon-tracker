@@ -1,3 +1,38 @@
+date	2019-09-21
+players	8
+result	resistance
+Jack	merlin
+Keegan	percival
+Ben	resistance
+Jack	resistance
+Jayden	resistance
+Ali	mordred
+Ben	morgana
+Juan	spy
+
+date	2019-09-21
+players	8
+result	spies
+Jack	merlin
+Dane	percival
+Ben	resistance
+Jack	resistance
+Juan	resistance
+Matt	mordred
+Jayden	morgana
+Keegan	spy
+
+date	2019-09-21
+players	7
+result	spies
+Ben	merlin
+Juan	percival
+Jack	resistance
+Keegan	resistance
+Ali	mordred
+Dane	morgana
+Matt	spy
+
 date	2019-09-18
 players	9
 result	spies
