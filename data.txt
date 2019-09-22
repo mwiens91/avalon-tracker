@@ -15,8 +15,8 @@ players	8
 result	spies
 Jack	merlin
 Dane	percival
+Ali	resistance
 Ben	resistance
-Jack	resistance
 Juan	resistance
 Matt	mordred
 Jayden	morgana
