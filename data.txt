@@ -4,8 +4,8 @@ result	resistance
 Jack	merlin
 Keegan	percival
 Dane	resistance
-Jack	resistance
 Jayden	resistance
+Matt	resistance
 Ali	mordred
 Ben	morgana
 Juan	spy
