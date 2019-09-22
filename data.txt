@@ -3,7 +3,7 @@ players	8
 result	resistance
 Jack	merlin
 Keegan	percival
-Ben	resistance
+Dane	resistance
 Jack	resistance
 Jayden	resistance
 Ali	mordred
