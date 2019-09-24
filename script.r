@@ -7,6 +7,10 @@ library(reshape2)
 library(scales)
 library(yaml)
 
+# Constants
+RESISTANCE_ROLES <- c("resistance", "merlin", "percival")
+SPIES_ROLES <- c("spy", "mordred", "morgana", "oberon", "golnar")
+
 # Helper functions
 get_molten_results <- function(df) {
   return(melt(select(df, player, result), id.var = c("player")))
@@ -153,9 +157,9 @@ for (game in raw_games) {
   game_df$team <- sapply(
     game_df[, "role"],
     function(role)
-      if (role %in% c("merlin", "percival", "resistance")) {
+      if (role %in% RESISTANCE_ROLES) {
         "resistance"
-      } else if (role %in% c("golnar", "mordred", "morgana", "oberon", "spy")) {
+      } else if (role %in% SPIES_ROLES) {
         "spies"
       } else {
         stop(sprintf("'%s' is not a recognized role!", role))
