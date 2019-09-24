@@ -9,7 +9,7 @@ library(yaml)
 
 # Constants
 RESISTANCE_ROLES <- c("resistance", "merlin", "percival")
-SPIES_ROLES <- c("spy", "mordred", "morgana", "oberon", "golnar")
+SPIES_ROLES <- c("spy", "mordred", "morgana", "oberon", "morrigan", "golnar")
 
 # Helper functions
 get_molten_results <- function(df) {

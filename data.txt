@@ -43,7 +43,7 @@ Keegan	resistance
 Jack	resistance
 Ryan	resistance
 Cameron	mordred
-Juan	morgana
+Juan	morrigan
 Simran	spy
 
 date	2019-09-18
