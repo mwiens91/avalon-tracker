@@ -38,8 +38,14 @@ get_formatted_results <- function(molten_results) {
 }
 
 get_plot_wins_losses <- function(wide_results, molten_results, title) {
-  results_freq <- as.data.frame(molten_results %>% group_by(player, value) %>% tally())
-  results_freq$n2 <- ifelse(results_freq$value == "loss", -1 * results_freq$n, results_freq$n)
+  results_freq <- as.data.frame(
+    molten_results %>% group_by(player, value) %>% tally()
+  )
+  results_freq$n2 <- ifelse(
+    results_freq$value == "loss",
+    -1 * results_freq$n,
+    results_freq$n
+  )
   results_freq$player <- factor(
     results_freq$player,
     levels = wide_results[
@@ -53,15 +59,19 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
   results_freq$value <- factor(results_freq$value, levels = c("win", "loss"))
 
   return(
-    ggplot(data = results_freq)
-    + geom_bar(aes(x = player, y = n2, fill = value), stat = "identity", position = "identity")
-      + labs(title = title, x = "player", y = "n")
-      + scale_y_continuous(
+    ggplot(data = results_freq) +
+      geom_bar(
+        aes(x = player, y = n2, fill = value),
+        stat = "identity",
+        position = "identity"
+      ) +
+      labs(title = title, x = "player", y = "n") +
+      scale_y_continuous(
         minor_breaks = NULL,
         breaks = function(x) unique(floor(seq(-max(x) - 1, (max(x) + 1) * 1.1)))
-      )
-      + scale_fill_manual(values = c("#00BFC4", "#F8766D"))
-      + theme(plot.title = element_text(hjust = 0.5))
+      ) +
+      scale_fill_manual(values = c("#00BFC4", "#F8766D")) +
+      theme(plot.title = element_text(hjust = 0.5))
   )
 }
 
@@ -78,21 +88,22 @@ get_plot_win_percent <- function(results, title) {
   )
 
   return(
-    ggplot(data = results_win_per, aes(x = player, y = win_percent))
-    + geom_bar(stat = "identity", fill = "steelblue")
-      + labs(title = title, x = "player", y = "win %")
-      + scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1))
-      + theme_minimal()
-      + theme(plot.title = element_text(hjust = 0.5))
+    ggplot(data = results_win_per, aes(x = player, y = win_percent)) +
+      geom_bar(stat = "identity", fill = "steelblue") +
+      labs(title = title, x = "player", y = "win %") +
+      scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
+      theme_minimal() +
+      theme(plot.title = element_text(hjust = 0.5))
   )
 }
 
 print_results_plots <- function(
-                                df,
-                                print_wins_losses_plot = FALSE,
-                                wins_losses_plot_title = "",
-                                print_win_percent_plot = FALSE,
-                                win_percent_plot_title = "") {
+  df,
+  print_wins_losses_plot = FALSE,
+  wins_losses_plot_title = "",
+  print_win_percent_plot = FALSE,
+  win_percent_plot_title = ""
+) {
   # Get out if no rows in data frame
   if (dim(df)[1] == 0) {
     # TODO: find a way to not have this print NULL to the terminal
@@ -104,7 +115,9 @@ print_results_plots <- function(
 
   if (print_wins_losses_plot) {
     p_wins_losses <- get_plot_wins_losses(
-      results, molten_results, wins_losses_plot_title
+      results,
+      molten_results,
+      wins_losses_plot_title
     )
     x11()
     print(p_wins_losses)
@@ -112,7 +125,8 @@ print_results_plots <- function(
 
   if (print_win_percent_plot) {
     p_win_percent <- get_plot_win_percent(
-      results, win_percent_plot_title
+      results,
+      win_percent_plot_title
     )
     x11()
     print(p_win_percent)
@@ -124,7 +138,10 @@ config_options <- yaml.load_file("config.yaml")
 
 # Load in data
 raw_data <- readLines("data.txt")
-raw_games <- split(raw_data[raw_data != ""], cumsum(raw_data == "")[raw_data != ""])
+raw_games <- split(
+  raw_data[raw_data != ""],
+  cumsum(raw_data == "")[raw_data != ""]
+)
 
 # Process data
 games <- c()
@@ -156,7 +173,7 @@ for (game in raw_games) {
   # Add team column
   game_df$team <- sapply(
     game_df[, "role"],
-    function(role)
+    function(role) {
       if (role %in% RESISTANCE_ROLES) {
         "resistance"
       } else if (role %in% SPIES_ROLES) {
@@ -164,12 +181,13 @@ for (game in raw_games) {
       } else {
         stop(sprintf("'%s' is not a recognized role!", role))
       }
+    }
   )
 
   # Add result column
   game_df$result <- sapply(
     game_df[, "team"],
-    function(role)
+    function(role) {
       if (role == "resistance" & winning_team == "resistance") {
         "win"
       } else if (role == "spies" & winning_team == "spies") {
@@ -177,6 +195,7 @@ for (game in raw_games) {
       } else {
         "loss"
       }
+    }
   )
 
   games <- c(games, list(game_df))
