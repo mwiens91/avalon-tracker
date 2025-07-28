@@ -88,7 +88,7 @@ Matt	spy
 date	2019-09-18
 players	9
 result	spies
-Zen	merlin
+Bobby	merlin
 Matt	percival
 David	resistance
 Keegan	resistance
@@ -105,7 +105,7 @@ Matt	merlin
 Jack	percival
 Juan	resistance
 Simran	resistance
-Zen	mordred
+Bobby	mordred
 Cameron	morgana
 Keegan	spy
 
@@ -127,7 +127,7 @@ David	merlin
 Jack	percival
 Keegan	resistance
 Matt	resistance
-Zen	resistance
+Bobby	resistance
 Chris	mordred
 Juan	morgana
 Simran	spy
@@ -140,7 +140,7 @@ Cameron	percival
 David	resistance
 Juan	resistance
 Matt	resistance
-Zen	resistance
+Bobby	resistance
 Simran	mordred
 Jack	morgana
 Jayden	spy
@@ -156,7 +156,7 @@ Juan	resistance
 Keegan	resistance
 Simran	resistance
 Chris	mordred
-Zen	morgana
+Bobby	morgana
 Cameron	spy
 
 date	2019-09-09
@@ -173,7 +173,7 @@ Paul	spy
 date	2019-08-31
 players	6
 result	spies
-Zen	merlin
+Bobby	merlin
 Paul	percival
 Ben	resistance
 Juno	resistance
@@ -202,7 +202,7 @@ Parker	resistance
 Jack	morgana
 Alex	spy
 Russell	spy
-Zen	spy
+Bobby	spy
 
 date	2019-07-26
 players	10
@@ -270,7 +270,7 @@ Cameron	resistance
 Parker	resistance
 Ben	morgana
 Alex	spy
-Zen	spy
+Bobby	spy
 
 date	2019-07-24
 players	8
@@ -294,7 +294,7 @@ Juan	resistance
 Matt	resistance
 David	morgana
 Jack	spy
-Zen	spy
+Bobby	spy
 
 date	2019-07-19
 players	6
@@ -313,7 +313,7 @@ Juan	merlin
 Keegan	percival
 Matt	resistance
 Mel	resistance
-Zen	morgana
+Bobby	morgana
 Jack	spy
 Juno	spy
 
@@ -323,7 +323,7 @@ result	resistance
 Jack	merlin
 Keegan	percival
 Ali	resistance
-Zen	resistance
+Bobby	resistance
 Matt	spy
 Simran	spy
 
@@ -522,7 +522,7 @@ Mauricio	spy
 date	2019-05-17
 players	7
 result	spies
-Zen	merlin
+Bobby	merlin
 Keegan	percival
 Alex	resistance
 Matt	resistance
@@ -535,7 +535,7 @@ players	6
 result	spies
 Jack	merlin
 Alex	resistance
-Zen	resistance
+Bobby	resistance
 Juan	resistance
 Dane	spy
 Keegan	spy
