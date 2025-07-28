@@ -1,3 +1,43 @@
+date	2025-07-26
+players	10
+result	resistance
+Aidan	merlin
+Matt	percival
+Alex	resistance
+Ben	resistance
+Dane	resistance
+Juan	resistance
+Keegan	morgana
+Cameron	spy
+David	spy
+Jayden	spy
+
+date	2025-07-26
+players	9
+result	resistance
+Juan	merlin
+Jayden	percival
+Ben	resistance
+James	resistance
+Keegan	resistance
+Simran	resistance
+Cameron	morgana
+Dane	spy
+David	spy
+
+date	2025-07-26
+players	9
+result	resistance
+Dane	merlin
+Juan	percival
+Cameron	resistance
+David	resistance
+Keegan	resistance
+Simran	resistance
+Jayden	morgana
+Ben	spy
+James	spy
+
 date	2019-11-08
 players	8
 result	spies
