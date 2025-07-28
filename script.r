@@ -68,7 +68,10 @@ get_plot_wins_losses <- function(wide_results, molten_results, title) {
       labs(title = title, x = "player", y = "n") +
       scale_y_continuous(
         minor_breaks = NULL,
-        breaks = function(x) unique(floor(seq(-max(x) - 1, (max(x) + 1) * 1.1)))
+        breaks = function(...) {
+          rng <- range(results_freq$n2, na.rm = TRUE)
+          seq(from = floor(rng[1]), to = ceiling(rng[2]), by = 1)
+        }
       ) +
       scale_fill_manual(values = c("#00BFC4", "#F8766D")) +
       theme(plot.title = element_text(hjust = 0.5))
