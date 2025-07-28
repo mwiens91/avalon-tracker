@@ -41,7 +41,7 @@ James	spy
 date	2019-11-08
 players	8
 result	spies
-Cameron		merlin
+Cameron	merlin
 Simran	percival
 Alex	resistance
 Ben	resistance
