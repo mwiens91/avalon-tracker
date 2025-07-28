@@ -19,14 +19,14 @@ results with your own.
 In an R enviroment run
 
 ```R
-install.packages(
+install.packages(c(
   "plyr",
   "dplyr",
   "ggplot2",
   "reshape2",
   "scales",
   "yaml"
-)
+))
 ```
 
 ### Setting up the configuration file
