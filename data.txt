@@ -1,3 +1,42 @@
+date	2025-07-30
+players	10
+result	spies
+Alex	merlin
+Simran	percival
+Russell	percival jr
+Ben	resistance
+Bobby	resistance
+Juan	resistance
+Jayden	morgana
+Branko	spy
+Keegan	spy
+Matt	spy
+
+date	2025-07-30
+players	9
+result	resistance
+Keegan	merlin
+Branko	percival
+Alex	resistance
+Jayden	resistance
+Juan	resistance
+Simran	resistance
+Ryan	morgana
+Ben	spy
+Matt	spy
+
+date	2025-07-30
+players	8
+result	spies
+Alex	merlin
+Juan	percival
+Jayden	resistance
+Keegan	resistance
+Simran	resistance
+Ben	morgana
+Matt	spy
+Ryan	spy
+
 date	2025-07-26
 players	10
 result	resistance
