@@ -8,7 +8,7 @@ library(scales)
 library(yaml)
 
 # Constants
-RESISTANCE_ROLES <- c("resistance", "merlin", "percival")
+RESISTANCE_ROLES <- c("resistance", "merlin", "percival", "percival jr")
 SPIES_ROLES <- c("spy", "mordred", "morgana", "oberon", "morrigan", "golnar")
 
 # Helper functions
